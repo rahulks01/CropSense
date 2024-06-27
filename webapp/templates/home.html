@@ -2,8 +2,33 @@
 
 {% block content %}
 
-<div class="col-md-6 offset-md-3">
-    <h1>Hello World!</h1>
-</div>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Sl. No.</th>
+        <th scope="col">Crop</th>
+        <th scope="col">Season</th>
+        <th scope="col">Harvest Time</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Last Updated</th>
+        <th scope="col">     </th>
+      </tr>
+    </thead>
+    <tbody>
+    {% if records %}
+        {% for record in records %}    
+            <tr>
+                <td>{{ forloop.counter }}</td>                
+                <td>{{ record.crop_name }}</td>
+                <td>{{ record.season }}</td>
+                <td>{{ record.harvest_time }}</td>
+                <td>{{ record.quantity }}</td>
+                <td>{{ record.price }}</td>
+                <td>{{ record.created_at }}</td>  
+                <td><a href="{% url 'record' record.id %}" class="btn btn-outline-info">Edit</a></td>              
+            </tr>
+        {% endfor %}
+    {% endif %}
 
 {% endblock %}

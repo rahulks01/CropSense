@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+from .models import Record
 
 
 class SignUpForm(UserCreationForm):
@@ -33,3 +34,34 @@ class SignUpForm(UserCreationForm):
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirm Password'
         self.fields['password2'].label = ''
         #self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'
+    
+class AddRecordForm(forms.ModelForm):
+    crop_name = forms.CharField(
+        required=True, 
+        widget=forms.TextInput(attrs={'placeholder': 'Crop Name', 'class': 'form-control'}), 
+        label=""
+    )
+    season = forms.CharField(
+        required=True, 
+        widget=forms.TextInput(attrs={'placeholder': 'Season', 'class': 'form-control'}), 
+        label=""
+    )
+    harvest_time = forms.FloatField(
+        required=True, 
+        widget=forms.NumberInput(attrs={'placeholder': 'Harvest Time', 'class': 'form-control'}), 
+        label=""
+    )
+    quantity = forms.FloatField(
+        required=True, 
+        widget=forms.NumberInput(attrs={'placeholder': 'Quantity', 'class': 'form-control'}), 
+        label=""
+    )
+    price = forms.FloatField(
+        required=True, 
+        widget=forms.NumberInput(attrs={'placeholder': 'Price', 'class': 'form-control'}), 
+        label=""
+    )
+
+    class Meta:
+        model = Record
+        exclude = ("user",)
