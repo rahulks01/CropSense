@@ -3,7 +3,7 @@ import requests
 from django.utils import timezone
 from .models import Weather
 
-API_KEY = '74840cc2110c573f8bd84cfc2aee64b9'
+API_KEY = 'YOUR_API_KEY_HERE' #Enter your API Key Here
 BASE_URL = 'https://api.openweathermap.org/data/2.5/weather'
 
 def fetch_weather_data(location):
