@@ -1,5 +1,5 @@
 // static/js/recommend.js
-const apiKey = '74840cc2110c573f8bd84cfc2aee64b9'; // Replace with your API key
+const apiKey = 'YOUR_API_KEY_HERE'; // Replace with your API key
 
 function getCurrentLocation() {
     if (navigator.geolocation) {
