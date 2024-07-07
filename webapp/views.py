@@ -7,9 +7,6 @@ from .models import Record
 from django.http import HttpResponse
 from .weather_service import fetch_weather_data
 
-def temp(request) :
-    return render(request, 'temp.html')
-
 def login_user(request):
     if request.method == "POST":
         username = request.POST.get('username')
