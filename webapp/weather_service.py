@@ -1,4 +1,3 @@
-# weather_service.py
 import requests
 from django.utils import timezone
 from .models import Weather
@@ -15,8 +14,6 @@ def fetch_weather_data(location):
     response = requests.get(BASE_URL, params=params)
     data = response.json()
 
-    # print(f"DEBUG: API Response - {data}")  # Debug print to inspect API response
-
     if response.status_code == 200:
         temperature = data['main']['temp'] if 'main' in data and 'temp' in data['main'] else None
         humidity = data['main']['humidity'] if 'main' in data and 'humidity' in data['main'] else None
@@ -31,7 +28,6 @@ def fetch_weather_data(location):
                 date=timezone.now()
             )
             weather.save()
-            # print(f"DEBUG: Saved Weather Data - {weather}") 
             return weather
         else:
             raise ValueError("Incomplete data received from API.")
