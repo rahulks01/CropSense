@@ -9,7 +9,8 @@
 
         {{ form.as_p }}
 
-        <button type="submit" class="btn btn-secondary">Update</button>
+        <a href="{% url 'record' crop_record.id %}" class="btn btn-secondary mb-3">Go Back</a>
+        <button type="submit" class="btn btn-success mb-3">Update</button>
     </form>
 </div>
 

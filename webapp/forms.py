@@ -17,7 +17,7 @@ class SignUpForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
-        for fieldname in ['username', 'password2']:
+        for fieldname in ['username', 'password1', 'password2']:
             self.fields[fieldname].help_text = None
         
         self.fields['username'].widget.attrs['class'] = 'form-control'
@@ -28,7 +28,7 @@ class SignUpForm(UserCreationForm):
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password1'].widget.attrs['placeholder'] = 'Password'
         self.fields['password1'].label = ''
-        self.fields['password1'].help_text = '<ul class="form-text small color-white text-white"><li>Your password must contain at least 8 characters.</li><li>Your password can\'t be a commonly used password.</li></ul>'
+        # self.fields['password1'].help_text = '<ul class="form-text small color-white text-white"><li>Your password must contain at least 8 characters.</li><li>Your password can\'t be a commonly used password.</li></ul>'
 
         self.fields['password2'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirm Password'
@@ -59,6 +59,36 @@ class AddRecordForm(forms.ModelForm):
     price = forms.FloatField(
         required=True, 
         widget=forms.NumberInput(attrs={'placeholder': 'Price', 'class': 'form-control'}), 
+        label=""
+    )
+    ideal_temperature_min = forms.FloatField(
+        required=True, 
+        widget=forms.NumberInput(attrs={'placeholder': 'Min. Temperature', 'class': 'form-control'}), 
+        label=""
+    )
+    ideal_temperature_max = forms.FloatField(
+        required=True, 
+        widget=forms.NumberInput(attrs={'placeholder': 'Max. Temperature', 'class': 'form-control'}), 
+        label=""
+    )
+    ideal_humidity_min = forms.FloatField(
+        required=True, 
+        widget=forms.NumberInput(attrs={'placeholder': 'Min. Humidity', 'class': 'form-control'}), 
+        label=""
+    )
+    ideal_humidity_max = forms.FloatField(
+        required=True, 
+        widget=forms.NumberInput(attrs={'placeholder': 'Max. Humidity', 'class': 'form-control'}), 
+        label=""
+    )
+    ideal_rainfall_min = forms.FloatField(
+        required=True, 
+        widget=forms.NumberInput(attrs={'placeholder': 'Min. Rainfall', 'class': 'form-control'}), 
+        label=""
+    )
+    ideal_rainfall_max = forms.FloatField(
+        required=True, 
+        widget=forms.NumberInput(attrs={'placeholder': 'Max. Rainfall', 'class': 'form-control'}), 
         label=""
     )
 

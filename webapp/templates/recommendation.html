@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Crop Recommendations for {{ location }}</h5>
+          <p class="card-text">Weather: Temperature {{ weather.temperature }}°C, Humidity {{ weather.humidity }}%, Rainfall {{ weather.rainfall }} mm</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Recommended Crops</h5>
+          <ul>
+            {% if recommended_crops %}
+            {% for crop in recommended_crops %}
+            <li>{{ crop.crop_name }}</li>
+            {% endfor %}
+            {% else %}
+            <li>No crops recommended for current weather conditions.</li>
+            {% endif %}
+        </ul>
+        <a href="{% url 'recommend' %}" class="btn btn-primary">Go Back</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+<!-- 
+<div class="row">
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Crop Recommendations for {{ location }}</h5>
+        <p class="card-text">Weather: Temperature {{ weather.temperature }}°C, Humidity {{ weather.humidity }}%, Rainfall {{ weather.rainfall }} mm</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Recommended Crops</h5>
+        <ul>
+          {% if recommended_crops %}
+          {% for crop in recommended_crops %}
+          <li>{{ crop.crop_name }}</li>
+          {% endfor %}
+          {% else %}
+          <li>No crops recommended for current weather conditions.</li>
+          {% endif %}
+      </ul>
+      <a href="{% url 'recommend' %}" class="btn btn-primary">Go Back</a>
+      </div>
+    </div>
+  </div>
+</div>
+-->

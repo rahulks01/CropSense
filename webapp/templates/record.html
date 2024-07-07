@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="card">
+<div class="card container" style="width: 25rem;">
     <div class="card-header">
         <h4>{{ crop_record.crop_name }}</h4>
     </div>
@@ -11,19 +11,31 @@
         <br>          
         <strong>Planting Season: </strong>{{ crop_record.season }}
         <br>
-        <strong>Optimal Harvesting Time: </strong>{{ crop_record.harvest_time }} Month(s)
+        <strong>Optimal Harvesting Time: </strong>{{ crop_record.harvest_time }}
         <br>
         <strong>Quantity: </strong>{{ crop_record.quantity }} kg(s)
         <br>
         <strong>Price: </strong>₹ {{ crop_record.price }}
         <br>
         <strong>Last Update: </strong>{{ crop_record.created_at }}
+        <br>
+        <strong>Temperature: </strong> 
+        <br> <em>Maximum:</em> {{ crop_record.ideal_temperature_max }} &deg;C 
+             <em>Minimum:</em> {{ crop_record.ideal_temperature_min }} &deg;C
+        <br>
+        <strong>Humidity: </strong> 
+        <br> <em>Maximum:</em> {{ crop_record.ideal_humidity_max }} %
+             <em>Minimum:</em> {{ crop_record.ideal_humidity_min }} %
+        <br>
+        <strong>Rainfall: </strong> 
+        <br> <em>Maximum:</em> {{ crop_record.ideal_rainfall_max }} mm
+             <em>Minimum:</em> {{ crop_record.ideal_rainfall_min }} mm
+        <br>
       </p>
+      <a href="{% url 'home' %}" class="btn btn-secondary mt-3">Go Back</a>
+     <a href="{% url 'delete_record' crop_record.id %}" class="btn btn-danger mt-3">Delete</a>
+     <a href="{% url 'update_record' crop_record.id %}" class="btn btn-warning mt-3">Update Record</a>
     </div>
 </div>
-
-<a href="{% url 'home' %}" class="btn btn-secondary mt-3">Go Back</a>
-<a href="{% url 'delete_record' crop_record.id %}" class="btn btn-danger mt-3">Delete</a>
-<a href="{% url 'update_record' crop_record.id %}" class="btn btn-warning mt-3">Update Record</a>
 
 {% endblock %}
