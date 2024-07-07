@@ -16,7 +16,7 @@
 
 - Navigate to the project directory <br>
   ```
-  cd CropSense/CropManagement
+  cd CropSense
   ```
 
 - Start up a virtual environment <br>
