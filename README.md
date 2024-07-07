@@ -14,11 +14,6 @@
   git clone https://github.com/rahulks01/CropSense.git
   ```
 
-- Navigate to the project directory <br>
-  ```
-  cd CropSense
-  ```
-
 - Start up a virtual environment <br>
   ```
   python -m venv venv
@@ -31,7 +26,11 @@
   ```
   On macOS and Linux: source venv/bin/activate
   ```
-
+- Navigate to the project directory <br>
+  ```
+  cd CropSense
+  ```
+  
 - Install the required packages <br>
   ```
   pip install -r requirements.txt
