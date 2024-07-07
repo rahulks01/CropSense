@@ -1,4 +1,3 @@
-# crops/management/commands/load_crops.py
 from django.core.management.base import BaseCommand
 from webapp.models import Record
 
