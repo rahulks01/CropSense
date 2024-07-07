@@ -11,7 +11,7 @@
 
 - Clone the repository <br>
   ```
-  git clone https://github.com/rahulks01/CropManagement.git
+  git clone https://github.com/rahulks01/CropSense.git
   ```
 
 - Navigate to the project directory <br>
